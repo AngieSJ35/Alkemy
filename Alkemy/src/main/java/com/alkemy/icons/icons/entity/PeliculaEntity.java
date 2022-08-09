@@ -44,7 +44,7 @@ public class PeliculaEntity {
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate fechaCreacion;
 	
-	private int calificacion;
+	private Integer calificacion;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "genero_id", insertable = false , updatable = false)

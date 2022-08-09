@@ -29,7 +29,7 @@ public class PersonajeEntity {
 	
 	private String nombre;
 	
-	private int edad;
+	private Integer edad;
 	
 	private Long peso;
 	
