@@ -1,9 +1,12 @@
 package com.alkemy.icons.icons.entity;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -21,6 +24,9 @@ public class GeneroEntity {
 	
 	private String nombre;
 	
+	@Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] imagen;
 	
 
 }

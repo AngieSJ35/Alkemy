@@ -1,33 +1,24 @@
-package com.alkemy.icons.icons.entity;
+package com.alkemy.icons.icons.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+
+import com.alkemy.icons.icons.entity.PeliculaEntity;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name="personaje")
 @Getter
 @Setter
-public class PersonajeEntity {
+public class PersonajeDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
-	
-	private String nombre;
+private String nombre;
 	
 	private int edad;
 	
@@ -41,5 +32,7 @@ public class PersonajeEntity {
 	
 	@ManyToMany(mappedBy = "personajes", cascade = CascadeType.ALL)
 	private List<PeliculaEntity> peliculas = new ArrayList<>();
+	
+	
 	
 }
