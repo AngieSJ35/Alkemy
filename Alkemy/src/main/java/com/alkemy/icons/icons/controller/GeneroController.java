@@ -3,6 +3,7 @@ package com.alkemy.icons.icons.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import com.alkemy.icons.icons.service.GeneroService;
 public class GeneroController {
 
 	@Autowired
+	@Qualifier("genero")
 	private GeneroService generoService;
 	
 	@GetMapping

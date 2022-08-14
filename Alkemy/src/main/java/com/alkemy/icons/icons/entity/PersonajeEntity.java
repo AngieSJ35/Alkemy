@@ -3,16 +3,16 @@ package com.alkemy.icons.icons.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +21,10 @@ import lombok.Setter;
 @Table(name="personaje")
 @Getter
 @Setter
+@SQLDelete(sql = "UPDATE personaje SET deleted = true where id=?")
+@Where(clause = "deleted=false")
 public class PersonajeEntity {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
@@ -35,11 +37,13 @@ public class PersonajeEntity {
 	
 	private String historia;
 	
-	@Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[] imagen;
-	
+    private String imagen;
+    
+    private boolean deleted = Boolean.FALSE;
+    
 	@ManyToMany(mappedBy = "personajes", cascade = CascadeType.ALL)
 	private List<PeliculaEntity> peliculas = new ArrayList<>();
+	
+	
 	
 }

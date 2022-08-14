@@ -24,9 +24,7 @@ public class GeneroEntity {
 	
 	private String nombre;
 	
-	@Lob
-   	@Basic(fetch = FetchType.LAZY)
-    	private byte[] imagen;
+    private String imagen;
 	
 
 }

@@ -5,29 +5,37 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.alkemy.icons.icons.dto.GeneroDTO;
-import com.alkemy.icons.icons.entity.GeneroEntity;
+import com.alkemy.icons.icons.dto.PersonajeDTO;
+import com.alkemy.icons.icons.entity.PersonajeEntity;
 
 @Component
 public class PersonajeMapper {
 
-	public GeneroEntity generoDTO2Entity(GeneroDTO dto) {
-		GeneroEntity generoEntity = new GeneroEntity();
-		generoEntity.setNombre(dto.getNombre());
-		return generoEntity;
+	public PersonajeEntity personajeDTO2Entity(PersonajeDTO dto) {
+		PersonajeEntity personajeEntity = new PersonajeEntity();
+		personajeEntity.setNombre(dto.getNombre());
+		personajeEntity.setEdad(dto.getEdad());
+		personajeEntity.setPeso(dto.getPeso());
+		personajeEntity.setHistoria(dto.getHistoria());
+		personajeEntity.setImagen(dto.getImagen());
+		// TODO: personajeEntity.setPeliculas(dto.setPeliculas(null));
+		return personajeEntity;
 	}
-	
-	public GeneroDTO generoEntity2DTO(GeneroEntity entity) {
-		GeneroDTO dto = new GeneroDTO();
-		dto.setId(entity.getId());
-		dto.setNombre(entity.getNombre());
-		return dto;
+	public PersonajeDTO personajeEntity2DTO(PersonajeEntity entity, boolean loadPeliculas) {
+		PersonajeDTO personajeDTO = new PersonajeDTO();
+		personajeDTO.setId(entity.getId());
+		personajeDTO.setNombre(entity.getNombre());
+		personajeDTO.setEdad(entity.getEdad());
+		personajeDTO.setPeso(entity.getPeso());
+		personajeDTO.setHistoria(entity.getHistoria());
+		personajeDTO.setImagen(entity.getImagen());
+		// TODO: personajeEntity.setPeliculas(dto.setPeliculas(null));
+		return personajeDTO;
 	}
-
-	public List<GeneroDTO> generoEntityList2DTOList(List<GeneroEntity> entities) {
-		List<GeneroDTO> dtos = new ArrayList<>();
-		for(GeneroEntity entity:entities) {
-			dtos.add(this.generoEntity2DTO(entity));
+	public List<PersonajeDTO> personajeEntityList2DTOList(List<PersonajeEntity> entities) {
+		List<PersonajeDTO> dtos = new ArrayList<>();
+		for(PersonajeEntity entity:entities) {
+			dtos.add(this.personajeEntity2DTO(entity, true));
 		}
 		return dtos;
 	}

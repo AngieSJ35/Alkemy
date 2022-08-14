@@ -21,6 +21,8 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,9 +38,7 @@ public class PeliculaEntity {
 	
 	private String titulo;
 	
-	@Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[] imagen;
+    private String imagen;
 	
 	@Column(name="fecha_creacion")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")

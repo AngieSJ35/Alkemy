@@ -1,12 +1,22 @@
 package com.alkemy.icons.icons.service;
 
-import com.alkemy.icons.icons.dto.GeneroDTO;
+import java.util.List;
+import java.util.Optional;
 
-import java.util.List; 
+import com.alkemy.icons.icons.dto.PersonajeDTO;
+import com.alkemy.icons.icons.entity.PersonajeEntity;
 
 public interface PersonajeService {
 
-	GeneroDTO save(GeneroDTO dto);
+	PersonajeDTO save(PersonajeDTO dto);
 
-	List<GeneroDTO> getAllGeneros();
+	List<PersonajeDTO> getAllPersonajes();
+
+	Optional<PersonajeEntity> getOne(Long id);
+
+	PersonajeDTO update(PersonajeDTO dto,PersonajeEntity entity);
+	
+	PersonajeDTO detail(Long id);
+
+	void delete(Long id);
 }

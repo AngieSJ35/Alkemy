@@ -11,11 +11,12 @@ import com.alkemy.icons.icons.mapper.GeneroMapper;
 import com.alkemy.icons.icons.repository.GeneroRepository;
 import com.alkemy.icons.icons.service.GeneroService;
 
-@Service
+@Service("genero")
 public class GeneroServiceImpl implements GeneroService{
 	
 	@Autowired
 	private GeneroMapper generoMapper;
+	
 	@Autowired
 	private GeneroRepository generoRepository;
 	

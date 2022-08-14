@@ -2,6 +2,8 @@ package com.alkemy.icons.icons.controller;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -21,12 +23,12 @@ import com.alkemy.icons.icons.service.PersonajeService;
 
 
 @RestController
-@RequestMapping("peliculas")
-public class PersonajeController {
+@RequestMapping("personajes")
+public class PeliculaController {
 
 	@Autowired
-	@Qualifier("peliculas")
-	private PeliculaService peliculaService;
+	@Qualifier("personaje")
+	private PersonajeService personajeService;
 	
 	@GetMapping
 	public ResponseEntity<List<PersonajeDTO>> getAll(){
